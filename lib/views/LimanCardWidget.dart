@@ -23,6 +23,7 @@ class _LimanCardWidgetState extends State<LimanCardWidget> {
 
 
     return Container(
+      height: 48,
       decoration: BoxDecoration(
         color:widget.selectedWidgetColor,
         border: Border.all(

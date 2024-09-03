@@ -31,54 +31,65 @@ class SehirlerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<List> dataList = sehirGorselleriVeIsimler();
-    String sehir=Provider.of<SehirProvider>(context).sehir;
+    String sehir = Provider.of<SehirProvider>(context).sehir;
     print(sehir);
     return Padding(
       padding: EdgeInsets.only(left: 19, right: 19, bottom: 19),
-      child: SizedBox(
-        width: context.phoneSizeWidth(0.44),
-        height: context.phoneSizeHeight(0.9),
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-          ),
+      child: Container(
+        width: context.phoneSizeWidth(0.9),
+        height: context.phoneSizeHeight(0.8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
           color: AppColor.pageColor,
-          child: ListView.builder(
-            itemCount: dataList.length,
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Card(
-                child: Opacity(
-                  opacity: sehir==dataList[index][1] ? 1.0 : 0.5,
-                  child: GestureDetector(
-                    onTap: () {
-                        Provider.of<SehirProvider>(context,listen: false).degistir(dataList[index][1]);
-                    },
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Image(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(dataList[index][0]),
-                          ),
+        ),
+        child: ListView.builder(
+          itemCount: dataList.length,
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Card(
+              child: Opacity(
+                opacity: sehir == dataList[index][1] ? 1.0 : 0.5,
+                child: GestureDetector(
+                  onTap: () {
+                    Provider.of<SehirProvider>(context, listen: false)
+                        .degistir(dataList[index][1]);
+                  },
+                  child: Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(dataList[index][0]),
                         ),
-                        Positioned(
-                          bottom: 25,
-                          left: 8,
-                          child: Column(
-                            children: [
-                              Text(dataList[index][1],style: Strings().interTight.copyWith(fontSize: 25,fontWeight: FontWeight.w700,color: Colors.white),),
-                            ],
-                          ),
+                      ),
+                      Positioned(
+                        bottom: 35,
+                        left: 15,
+                        child: Column(
+                          children: [
+                            Text(
+                              dataList[index][1],
+                              style: Strings().interTight.copyWith(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white),
+                            ),
+                          ],
                         ),
-                        Positioned(
-                          bottom: 8,
-                          left: 8,
-                          child: Text("Türkiye",style: Strings().interTight.copyWith(fontSize: 15,fontWeight: FontWeight.w400,color: Colors.white),),
-                        )
-                      ],
-                    ),
+                      ),
+                      Positioned(
+                        bottom: 18,
+                        left: 15,
+                        child: Text(
+                          "Türkiye",
+                          style: Strings().interTight.copyWith(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white),
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),

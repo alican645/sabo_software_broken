@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.interTightTextTheme(),
       ),
-      home: HomePage()
+      home: SafeArea(child: HomePage())
     );
   }
 }

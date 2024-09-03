@@ -49,49 +49,45 @@ class _UcretOlmayanLimanlarWidgetState
 
     return Padding(
       padding: EdgeInsets.only(left: 19, right: 19, bottom: 19),
-      child: SizedBox(
-        width: context.phoneSizeWidth(0.7),
-        height: context.phoneSizeHeight(0.9),
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-          ),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
           color: AppColor.pageColor,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
               Align(
                 alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                  child: Text(
-                    strings.ucretOlmayanLimanlar,
-                    style: Strings().interTight.copyWith(fontSize: 17,fontWeight: FontWeight.w600,),
-                  ),
+                child: Text(
+                  strings.ucretOlmayanLimanlar,
+                  style: Strings().interTight.copyWith(fontSize: 17,fontWeight: FontWeight.w600,),
                 ),
+              ),
+              SizedBox(
+                height: 5,
               ),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                  child: Wrap(
-                    children: limanlar()
-                        .map((liman) => Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: GestureDetector(
-                                onTap: () {
-                                  Provider.of<EkstraUcretLimanlarProvider>(context,listen: false).toggleStringInList(liman);
-                                },
-                                child: LimanCardWidget(
-                                  limanlar: liman,
-                                  selectedWidgetColor: containsString(secilenLimanlar, liman)?AppColor.cardColor:Colors.white,
-                                  selectedWidgetTextColor: containsString(secilenLimanlar, liman)
-                                      ? Colors.white
-                                      : Colors.black,
-                                ),
+                child: Wrap(
+                  children: limanlar()
+                      .map((liman) => Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: GestureDetector(
+                              onTap: () {
+                                Provider.of<EkstraUcretLimanlarProvider>(context,listen: false).toggleStringInList(liman);
+                              },
+                              child: LimanCardWidget(
+                                limanlar: liman,
+                                selectedWidgetColor: containsString(secilenLimanlar, liman)?AppColor.cardColor:Colors.white,
+                                selectedWidgetTextColor: containsString(secilenLimanlar, liman)
+                                    ? Colors.white
+                                    : Colors.black,
                               ),
-                        ))
-                        .toList(),
-                  ),
+                            ),
+                      ))
+                      .toList(),
                 ),
               )
             ],
