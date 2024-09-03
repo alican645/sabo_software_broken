@@ -11,9 +11,21 @@ class Strings {
   TextStyle interTight= GoogleFonts.interTight();
   TextStyle inter = GoogleFonts.inter();
 
-
   String tasitlarim = "Taşıtlarım";
   String anaLiman ="Ana Liman" ;
   String sehir="Şehir";
   String ucretOlmayanLimanlar = "Ekstra Ücret Uygulamayan Limanlar";
+
+  String imkanlarTitle="İmkanlar";
+  List<String> stringList =[ 'Dışarıdan catering firması getirilemez',
+  'Mangal Yapılamaz',
+  'Yüzme turları için yüzme turu seçeneğini seçmeniz gerekmektedir',];
+
+
+  String guvenlikEkipmanlariTitle = 'Güvenlik Ekipmanları';
+  String paketlerTitle ='Paketler';
+  String hizmetlerTitle = "Hizmetler";
+  String yemekMenuleriTitle = "Taşıtlarım";
+
+
 }

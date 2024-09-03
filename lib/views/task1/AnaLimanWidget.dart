@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:sabo_software/const/AppColor.dart';
 import 'package:sabo_software/const/extension.dart';
 import 'package:sabo_software/provider/AnaLimanProvider.dart';
-import '../api_services/sehir_model.dart';
-import '../const/strings.dart';
-import '../provider/SehirProvider.dart';
+import '../../api_services/sehir_model.dart';
+import '../../const/strings.dart';
+import '../../provider/SehirProvider.dart';
 import 'LimanCardWidget.dart';
 
 class AnaLimanWidget extends StatefulWidget {

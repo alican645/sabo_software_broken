@@ -4,9 +4,9 @@ import "package:sabo_software/const/strings.dart";
 import "package:sabo_software/const/extension.dart";
 import "package:sabo_software/provider/EkstraUcretLimanlarProvider.dart";
 
-import "../api_services/sehir_model.dart";
-import "../const/AppColor.dart";
-import "../provider/SehirProvider.dart";
+import "../../api_services/sehir_model.dart";
+import "../../const/AppColor.dart";
+import "../../provider/SehirProvider.dart";
 import "LimanCardWidget.dart";
 
 class UcretOlmayanLimanlarWidget extends StatefulWidget {

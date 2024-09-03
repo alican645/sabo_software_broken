@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sabo_software/const/extension.dart';
-import '../const/AppColor.dart';
+import '../../const/AppColor.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({

@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:sabo_software/const/extension.dart';
 import 'package:sabo_software/provider/SeciliWidgetProvider.dart';
 
-import '../const/AppColor.dart';
-import '../const/strings.dart';
+import '../../const/AppColor.dart';
+import '../../const/strings.dart';
 
 class ScroolHorizontalWidget extends StatelessWidget {
   const ScroolHorizontalWidget({
