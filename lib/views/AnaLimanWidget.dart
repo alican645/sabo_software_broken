@@ -82,9 +82,12 @@ class _AnaLimanWidgetState extends State<AnaLimanWidget> {
                                 },
                                 child: LimanCardWidget(
                                   limanlar: liman,
-                                  color: containsString(secilenLimanlar, liman)
+                                  selectedWidgetColor: containsString(secilenLimanlar, liman)
                                       ? AppColor.cardColor
                                       : Colors.white,
+                                  selectedWidgetTextColor: containsString(secilenLimanlar, liman)
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
                               ),
                             ))

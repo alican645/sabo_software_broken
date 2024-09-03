@@ -65,7 +65,7 @@ class _UcretOlmayanLimanlarWidgetState
                   padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   child: Text(
                     strings.ucretOlmayanLimanlar,
-                    style: Strings().interTight.copyWith(fontSize: 17,fontWeight: FontWeight.w600),
+                    style: Strings().interTight.copyWith(fontSize: 17,fontWeight: FontWeight.w600,),
                   ),
                 ),
               ),
@@ -83,7 +83,10 @@ class _UcretOlmayanLimanlarWidgetState
                                 },
                                 child: LimanCardWidget(
                                   limanlar: liman,
-                                  color: containsString(secilenLimanlar, liman)?AppColor.cardColor:Colors.white,
+                                  selectedWidgetColor: containsString(secilenLimanlar, liman)?AppColor.cardColor:Colors.white,
+                                  selectedWidgetTextColor: containsString(secilenLimanlar, liman)
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
                               ),
                         ))

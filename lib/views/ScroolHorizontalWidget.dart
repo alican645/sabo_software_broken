@@ -53,8 +53,12 @@ class ScroolHorizontalWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Center(
-                      child: Text(list[index],
-                      style: Strings().interTight.copyWith(fontWeight: FontWeight.w500,fontSize: 13),),
+                      child: Text(
+                        list[index],
+                        style: Strings().interTight.copyWith(
+                            fontWeight: FontWeight.w500, fontSize: 13,
+                        color: list[index] == seciliWidget ? Colors.white : Colors.black,),
+                      ),
                     ),
                   ),
                 ),
