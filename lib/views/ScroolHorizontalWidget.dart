@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sabo_software/const/extension.dart';
 import 'package:sabo_software/provider/SeciliWidgetProvider.dart';
 
 import '../const/AppColor.dart';
+
 class ScroolHorizontalWidget extends StatelessWidget {
   const ScroolHorizontalWidget({
     super.key,
@@ -21,7 +21,8 @@ class ScroolHorizontalWidget extends StatelessWidget {
       "Servisler",
       "Şartlar"
     ];
-    String seciliWidget=Provider.of<SeciliWidgetProvider>(context).seciliWidget;
+    String seciliWidget =
+        Provider.of<SeciliWidgetProvider>(context).seciliWidget;
 
     return SizedBox(
         height: context.phoneSizeHeight(0.1),
@@ -35,19 +36,23 @@ class ScroolHorizontalWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
                 onTap: () {
-                  Provider.of<SeciliWidgetProvider>(context,listen: false).changeSeciliWidget(list[index]);
+                  Provider.of<SeciliWidgetProvider>(context, listen: false)
+                      .changeSeciliWidget(list[index]);
                 },
-                child: Card(
-                  color: list[index]==seciliWidget?AppColor.cardColor:null,
-                  shape:RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(45)),
-                  ) ,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color:
+                        list[index] == seciliWidget ? AppColor.cardColor : null,
+                    border: Border.all(
+                      color: Color(0x0A000000),
+                      width: 1.5,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(200)),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Center(
-                      child: Text(
-                          list[index]
-                      ),
+                      child: Text(list[index]),
                     ),
                   ),
                 ),
