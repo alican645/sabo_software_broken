@@ -21,7 +21,7 @@ class TasitlariAppBarWidget extends StatelessWidget {
             child: Row(
               children: [
                 IconButton(onPressed: (){}, icon: Image(image: AssetImage("lib/assets/icons/arrow_left.png")),),
-                Text(Strings().tasitlarim,style: GoogleFonts.interTight().copyWith(fontWeight:FontWeight.w500,fontSize: 13,))
+                Text(Strings().tasitlarim,style: Strings().tasitlarimTextStyle)
               ],
             ),
           ),

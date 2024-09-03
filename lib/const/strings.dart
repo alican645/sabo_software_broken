@@ -22,10 +22,7 @@ class Strings {
 
   TextStyle tasitlarimTextStyle = TextStyle(
     fontFamily: 'Inter Tight',
-    fontSize: 19,
     fontWeight: FontWeight.w600,
-    height: 1.26,
-    letterSpacing: -0.4,
   );
 
   TextStyle sehirAdiTextStyle =  TextStyle(

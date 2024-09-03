@@ -76,7 +76,12 @@ flutter:
       fonts:
         - asset: lib/assets/fonts/InterTight-Italic-VariableFont_wght.ttf
           style: italic
-        - asset: fonts/Schyler-Italic.ttf
+          weight: 500
+        - asset: lib/assets/fonts/InterTight-VariableFont_wght.ttf
+          weight: 600
+        - asset: lib/assets/fonts/static/InterTight-SemiBold.ttf
+          weight: 400
+
 
 
   #   - family: Trajan Pro
