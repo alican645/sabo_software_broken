@@ -33,7 +33,7 @@ class _LimanCardWidgetState extends State<LimanCardWidget> {
       padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       child: Text(
         widget.limanlar.toString(),
-        style: strings.cardWidgetStyle,
+        style:Strings().interTight.copyWith(fontWeight: FontWeight.w500,fontSize: 15),
       ),
     );
   }

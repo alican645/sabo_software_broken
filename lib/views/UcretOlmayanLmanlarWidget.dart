@@ -65,7 +65,7 @@ class _UcretOlmayanLimanlarWidgetState
                   padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   child: Text(
                     strings.ucretOlmayanLimanlar,
-                    style: Strings().tasitlarimTextStyle,
+                    style: Strings().interTight.copyWith(fontSize: 17,fontWeight: FontWeight.w600),
                   ),
                 ),
               ),

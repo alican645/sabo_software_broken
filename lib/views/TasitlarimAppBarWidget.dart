@@ -20,8 +20,15 @@ class TasitlariAppBarWidget extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                IconButton(onPressed: (){}, icon: Image(image: AssetImage("lib/assets/icons/arrow_left.png")),),
-                Text(Strings().tasitlarim,style: Strings().tasitlarimTextStyle)
+                IconButton(
+                  onPressed: () {},
+                  icon: Image(
+                      image: AssetImage("lib/assets/icons/arrow_left.png")),
+                ),
+                Text(
+                  Strings().tasitlarim,
+                  style: Strings().interTight.copyWith(fontSize: 19,fontWeight: FontWeight.w600),
+                )
               ],
             ),
           ),

@@ -18,7 +18,7 @@ class AnaLimanWidget extends StatefulWidget {
 }
 
 class _AnaLimanWidgetState extends State<AnaLimanWidget> {
-  Strings strings = Strings();
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +59,8 @@ class _AnaLimanWidgetState extends State<AnaLimanWidget> {
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                   child: Text(
-                    strings.anaLiman.toString(),
-                    style: strings.mainTitleStyle,
+                    Strings().anaLiman,
+                    style: Strings().interTight.copyWith(fontSize: 17,fontWeight: FontWeight.w600),
                   ),
                 ),
               ),

@@ -4,6 +4,7 @@ import 'package:sabo_software/const/extension.dart';
 import 'package:sabo_software/provider/SeciliWidgetProvider.dart';
 
 import '../const/AppColor.dart';
+import '../const/strings.dart';
 
 class ScroolHorizontalWidget extends StatelessWidget {
   const ScroolHorizontalWidget({
@@ -52,7 +53,8 @@ class ScroolHorizontalWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Center(
-                      child: Text(list[index]),
+                      child: Text(list[index],
+                      style: Strings().interTight.copyWith(fontWeight: FontWeight.w500,fontSize: 13),),
                     ),
                   ),
                 ),

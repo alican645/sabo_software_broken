@@ -64,14 +64,18 @@ class SehirlerWidget extends StatelessWidget {
                           ),
                         ),
                         Positioned(
-                          bottom: 8,
+                          bottom: 25,
                           left: 8,
                           child: Column(
                             children: [
-                              Text(dataList[index][1],style: Strings().sehirAdiTextStyle,),
-                              Text("Türkiye",style: Strings().turkiyeTextStyle,)
+                              Text(dataList[index][1],style: Strings().interTight.copyWith(fontSize: 25,fontWeight: FontWeight.w700,color: Colors.white),),
                             ],
                           ),
+                        ),
+                        Positioned(
+                          bottom: 8,
+                          left: 8,
+                          child: Text("Türkiye",style: Strings().interTight.copyWith(fontSize: 15,fontWeight: FontWeight.w400,color: Colors.white),),
                         )
                       ],
                     ),

@@ -1,8 +1,14 @@
 
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Strings {
+
+  TextStyle interTight= GoogleFonts.interTight();
+
   TextStyle  cardWidgetStyle = TextStyle(
     fontFamily: 'Inter',
     fontSize: 15,
