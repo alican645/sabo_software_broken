@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import '../../const/AppColor.dart';
 import '../../const/strings.dart';
@@ -14,25 +12,24 @@ class ServislerWidget extends StatefulWidget {
 }
 
 class _ServislerWidgetState extends State<ServislerWidget> {
-
-  String imkanlarTitle="İmkanlar";
+  String imkanlarTitle = "İmkanlar";
   bool imkanlarContent1 = false;
   bool imkanlarContent2 = false;
   bool imkanlarContent3 = false;
-  List<bool> imkanlarContentValueList =[];
+  List<bool> imkanlarContentValueList = [];
   List<String> imkannlarTexts = [
     "Dışarıdan catering firması getirilemez",
     "Mangal Yapılamaz",
     "Yüzme turları için yüzme turu seçeneğini seçmeniz gerekmektedir",
   ];
 
-  String paketlerTitle ="Paketler";
+  String paketlerTitle = "Paketler";
   bool paketlerContent1 = false;
   bool paketlerContent2 = false;
   bool paketlerContent3 = false;
   bool paketlerContent4 = false;
   bool paketlerContent5 = false;
-  List<bool> paketlerContentValueList =[];
+  List<bool> paketlerContentValueList = [];
   List<String> paketlerTexts = [
     "Dışarıdan catering firması getirilemez",
     "Mangal Yapılamaz",
@@ -45,7 +42,7 @@ class _ServislerWidgetState extends State<ServislerWidget> {
   bool hizmetlerContent1 = false;
   bool hizmetlerContent2 = false;
   bool hizmetlerContent3 = false;
-  List<bool> hizmetlerContentValueList =[];
+  List<bool> hizmetlerContentValueList = [];
   List<String> hizmetlerTexts = [
     "Dışarıdan catering firması getirilemez",
     "Mangal Yapılamaz",
@@ -55,25 +52,41 @@ class _ServislerWidgetState extends State<ServislerWidget> {
   @override
   void initState() {
     super.initState();
-    hizmetlerContentValueList = [hizmetlerContent1, hizmetlerContent2, hizmetlerContent3];// Listeyi burada başlatıyoruz
-    imkanlarContentValueList = [imkanlarContent1,imkanlarContent2,imkanlarContent3];
-    paketlerContentValueList = [paketlerContent1,paketlerContent2,paketlerContent3,paketlerContent4,paketlerContent5];
-
+    hizmetlerContentValueList = [
+      hizmetlerContent1,
+      hizmetlerContent2,
+      hizmetlerContent3
+    ]; // Listeyi burada başlatıyoruz
+    imkanlarContentValueList = [
+      imkanlarContent1,
+      imkanlarContent2,
+      imkanlarContent3
+    ];
+    paketlerContentValueList = [
+      paketlerContent1,
+      paketlerContent2,
+      paketlerContent3,
+      paketlerContent4,
+      paketlerContent5
+    ];
   }
 
   @override
   Widget build(BuildContext context) {
-
-    return Column(children:[
-        buildCheckboxContainer(hizmetlerTitle, hizmetlerContentValueList, hizmetlerTexts),
-      buildCheckboxContainer(paketlerTitle, paketlerContentValueList, paketlerTexts),
-      buildCheckboxContainer(imkanlarTitle, imkanlarContentValueList, imkannlarTexts)
-    ],);
+    return Column(
+      children: [
+        buildCheckboxContainer(
+            hizmetlerTitle, hizmetlerContentValueList, hizmetlerTexts),
+        buildCheckboxContainer(
+            paketlerTitle, paketlerContentValueList, paketlerTexts),
+        buildCheckboxContainer(
+            imkanlarTitle, imkanlarContentValueList, imkannlarTexts)
+      ],
+    );
   }
 
-
-
-  Widget buildCheckboxContainer(String title, List<bool> checkboxValues,List<String> contentTexts) {
+  Widget buildCheckboxContainer(
+      String title, List<bool> checkboxValues, List<String> contentTexts) {
     return Container(
         padding: EdgeInsets.only(left: 19, right: 19, bottom: 10, top: 10),
         decoration: BoxDecoration(
@@ -101,7 +114,11 @@ class _ServislerWidgetState extends State<ServislerWidget> {
                 ),
                 ...List.generate(
                   contentTexts.length,
-                      (index) => CheckboxListTile(
+                  (index) => CheckboxListTile(
+                    activeColor: Color(0xFF49CA56),
+                    contentPadding: EdgeInsets.zero,
+                    checkboxShape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100)),
                     title: Text(contentTexts[index]),
                     value: checkboxValues[index],
                     onChanged: (bool? value) {
@@ -110,7 +127,6 @@ class _ServislerWidgetState extends State<ServislerWidget> {
                         print(title);
                         print(contentTexts[index]);
                         print(checkboxValues[index]);
-
                       });
                     },
                     controlAffinity: ListTileControlAffinity.leading,
@@ -121,6 +137,4 @@ class _ServislerWidgetState extends State<ServislerWidget> {
           ),
         ));
   }
-
 }
-
