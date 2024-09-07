@@ -17,9 +17,11 @@ class Strings {
   String ucretOlmayanLimanlar = "Ekstra Ücret Uygulamayan Limanlar";
 
   String imkanlarTitle="İmkanlar";
-  List<String> stringList =[ 'Dışarıdan catering firması getirilemez',
+  List<String> stringList =[ 'Dışarıdan catering firması getirilemezzxcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc',
   'Mangal Yapılamaz',
-  'Yüzme turları için yüzme turu seçeneğini seçmeniz gerekmektedir',];
+  'Yüzme turları için yüzme turu seçeneğini seçmeniz gerekmektedirzxccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc',
+    'Yüzme turları için yüzme turu seçeneğini seçmeniz gerekmektedirzxccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc',
+  ];
 
 
   String guvenlikEkipmanlariTitle = 'Güvenlik Ekipmanları';
