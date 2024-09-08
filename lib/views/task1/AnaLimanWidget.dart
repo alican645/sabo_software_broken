@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sabo_software/const/AppColor.dart';
-import 'package:sabo_software/const/extension.dart';
 import 'package:sabo_software/provider/AnaLimanProvider.dart';
 import '../../api_services/sehir_model.dart';
 import '../../const/strings.dart';

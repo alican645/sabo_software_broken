@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:sabo_software/const/extension.dart';
 import '../../const/AppColor.dart';
 import '../../const/strings.dart';
