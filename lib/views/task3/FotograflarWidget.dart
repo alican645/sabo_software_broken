@@ -1,6 +1,9 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -32,10 +35,16 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
           padding: const EdgeInsets.all(15.0),
           child: Column(
             children: [
-              const Text("Fotoğraflar"),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text("Fotoğraflar",style: GoogleFonts.interTight().copyWith(fontSize: 17,fontWeight: FontWeight.w600),)),
+              ),
               SizedBox(
                 height: 210, // Stack widget için belirli bir yükseklik
                 child: PageView.builder(
+
                   onPageChanged: (index) {
                     setState(() {
                       currentIndex = index;
@@ -46,15 +55,16 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
                   itemBuilder: (context, index) {
                     return Stack(
                       children: [
-                        Card(
-                          color: Colors.blue,
+                        Container(
                           child: SizedBox(
                             width: 800,
                             height: 200,
-                            child: xFileList.isNotEmpty
-                                ? Image.file(File(xFileList[index].path))
-                                : Image.network(
-                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEaYTaC-q-QWUu2g7QgVvRKkJkqXjXtjBU2w&s"),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: xFileList.isNotEmpty
+                                  ? Image.file(File(xFileList[index].path),fit: BoxFit.cover,)
+                                  : Image.asset("lib/assets/images/picture-icon-vector-illustration.jpg")
+                            ),
                           ),
                         ),
                         Positioned(
@@ -111,22 +121,25 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
               ),
               Row(
                 children: [
-                  GestureDetector(
-                    onTap: () async {
-                      XFile? pickedFile = await imagePicker.pickImage(source: ImageSource.gallery);
+                  Padding(
+                    padding: const EdgeInsets.only(right: 5),
+                    child: GestureDetector(
+                      onTap: () async {
+                        XFile? pickedFile = await imagePicker.pickImage(source: ImageSource.gallery);
 
-                      if (pickedFile != null) {
-                        setState(() {
-                          xFileList.add(pickedFile);
-                          imageFile = xFileList[0];
-                          currentIndex = 0;
-                        });
-                      } else {
-                        Fluttertoast.showToast(msg: 'No image selected.');
-                      }
-                    },
-                    child: const Image(
-                      image: AssetImage("lib/assets/images/upload_image.png"),
+                        if (pickedFile != null) {
+                          setState(() {
+                            xFileList.add(pickedFile);
+                            imageFile = xFileList[0];
+                            currentIndex = 0;
+                          });
+                        } else {
+                          Fluttertoast.showToast(msg: 'No image selected.');
+                        }
+                      },
+                      child: const Image(
+                        image: AssetImage("lib/assets/images/upload_image.png"),
+                      ),
                     ),
                   ),
                   // Kaydırılabilir Row için SingleChildScrollView
@@ -136,19 +149,18 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
                       child: Row(
                         children: List.generate(
                           xFileList.length,
-                              (index) => GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                currentIndex = index;
-                                imageFile = xFileList[index];
-                              });
-                            },
-                            child: SizedBox(
-                              height: 80,
-                              width: 80,
-                              child: Image.file(File(xFileList[index].path)),
-                            ),
-                          ),
+                              (index) => Container(
+                                margin: const EdgeInsets.symmetric(horizontal: 5),
+                                height: 80,
+                                width: 80,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: Image.file(
+                                    File(xFileList[index].path),
+                                    fit: BoxFit.cover, // Resmi belirlenen alana sığdırmak için
+                                  ),
+                                ),
+                              ),
                         ),
                       ),
                     ),
