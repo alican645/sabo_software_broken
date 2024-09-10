@@ -19,8 +19,8 @@ class _TumTasitlerWidgetState extends State<TumTasitlerWidget> {
   void initState() {
     super.initState();
     tekneListesi.add([false, "TekneAdi1"]);
-    tekneListesi.add([false, "TekneAdi2"]);
-    tekneListesi.add([false, "TekneAdi3"]);
+    //tekneListesi.add([false, "TekneAdi2"]);
+    //tekneListesi.add([false, "TekneAdi3"]);
   }
 
   @override
@@ -28,8 +28,15 @@ class _TumTasitlerWidgetState extends State<TumTasitlerWidget> {
     return Scaffold(
       backgroundColor: const Color(0xffF4F8FA),
       appBar: AppBar(
-        title: const Text("Taşıtlarım"),
-        leading: const Icon(Icons.add),
+        title: Text(
+          "Taşıtlarım",
+          style: GoogleFonts.interTight(
+              fontSize: 17,
+              fontWeight: FontWeight.w600,
+              color: Color(0xff1A2228)),
+        ),
+        leading: Icon(Icons.arrow_back_ios,size: 20,),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 19, vertical: 10),
@@ -70,15 +77,13 @@ class _TumTasitlerWidgetState extends State<TumTasitlerWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SvgPicture.asset(
-                                "assets/svg/yeni_tekne.svg"),
+                            SvgPicture.asset("assets/svg/yeni_tekne.svg"),
                             const Text("Yeni Tekne Ekle")
                           ],
                         ),
                       ),
                       Image.asset(
-                          fit: BoxFit.cover,
-                          "assets/images/rectangle.png")
+                          fit: BoxFit.cover, "assets/images/rectangle.png")
                     ]),
                   ),
                 ],
@@ -150,12 +155,20 @@ class _TumTasitlerWidgetState extends State<TumTasitlerWidget> {
                             color: Color(0xff1A2228)),
                       ),
                       SizedBox(
-                        width: mqWidth*0.01,
+                        width: mqWidth * 0.01,
                       ),
-                       Text(
-                        "4.8",style: GoogleFonts.inter(fontSize:13,fontWeight:FontWeight.w500,color:Color(0xff1A2228)),
+                      Text(
+                        "4.8",
+                        style: GoogleFonts.inter(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xff1A2228)),
                       ),
-                      Text("(62)",style: GoogleFonts.inter(fontSize:13,fontWeight:FontWeight.w500,color:Color(0xff526675))),
+                      Text("(62)",
+                          style: GoogleFonts.inter(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xff526675))),
                       Padding(
                         padding: const EdgeInsets.only(left: 2.0),
                         child: Container(
@@ -175,7 +188,6 @@ class _TumTasitlerWidgetState extends State<TumTasitlerWidget> {
                                     fontWeight: FontWeight.w600),
                               ),
                               SvgPicture.asset("assets/svg/check_badge.svg"),
-
                             ],
                           ),
                         ),
@@ -228,13 +240,16 @@ class _TumTasitlerWidgetState extends State<TumTasitlerWidget> {
                                     fontSize: 13,
                                     color: Color(0xff526675)),
                               ),
-                              SvgPicture.asset("assets/svg/delete_grey.svg",color:Color(0xff526675),)
+                              SvgPicture.asset(
+                                "assets/svg/delete_grey.svg",
+                                color: Color(0xff526675),
+                              )
                             ],
                           )),
                         ),
                       ),
                       SizedBox(
-                        width: mqWidth * 0.01,
+                        width: mqWidth * 0.03,
                       ),
                       GestureDetector(
                         child: Container(
