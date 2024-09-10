@@ -43,9 +43,6 @@ class _UcretOlmayanLimanlarWidgetState
       return list.contains(searchString);
     }
 
-
-
-
     return Padding(
       padding: EdgeInsets.only(left: 19, right: 19, bottom: 19),
       child: Container(

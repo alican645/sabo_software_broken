@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.interTightTextTheme(),
       ),
-      home: SafeArea(child: TumTasitlerWidget(),)
+      home: SafeArea(child: HomePage(),)
     );
   }
 }
