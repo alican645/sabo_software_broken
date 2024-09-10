@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sabo_software/const/strings.dart';
 
 
@@ -35,7 +36,7 @@ class _LimanCardWidgetState extends State<LimanCardWidget> {
       padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       child: Text(
         widget.limanlar.toString(),
-        style:Strings().interTight.copyWith(fontWeight: FontWeight.w500,fontSize: 15,color: widget.selectedWidgetTextColor),
+        style:GoogleFonts.interTight().copyWith(fontWeight: FontWeight.w500,fontSize: 15,color: widget.selectedWidgetTextColor),
       ),
     );
   }

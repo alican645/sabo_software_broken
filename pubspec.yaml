@@ -61,8 +61,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - lib/assets/images/
-    - lib/assets/icons/
+    - assets/svg/
+    - assets/images/
+
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -76,16 +78,8 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Inter Tight
-      fonts:
-        - asset: lib/assets/fonts/InterTight-Italic-VariableFont_wght.ttf
-          style: italic
-          weight: 500
-        - asset: lib/assets/fonts/InterTight-VariableFont_wght.ttf
-          weight: 600
-        - asset: lib/assets/fonts/static/InterTight-SemiBold.ttf
-          weight: 400
+  #fonts:
+
 
 
 

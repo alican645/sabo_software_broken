@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sabo_software/const/extension.dart';
+
 import '../../const/AppColor.dart';
 import '../../const/strings.dart';
 import 'LimanCardWidget.dart';
@@ -143,6 +143,10 @@ class LokasyonWidget extends StatefulWidget {
 
   String seciliSehir ="Çanakkale";
 
+  List<List> sehirGorselleriVeIsimler = sehirListesi.map((element) {
+    return [element.gorsel.toString(), element.il.toString()];
+  }).toList();
+
   @override
   State<LokasyonWidget> createState() => _LokasyonWidgetState();
 }
@@ -165,32 +169,27 @@ class _LokasyonWidgetState extends State<LokasyonWidget> {
 
   // Şehirler bileşeni metodu
   Widget _buildSehirlerWidget(BuildContext context) {
-    List<List> sehirGorselleriVeIsimler = sehirList.map((element) {
-      return [element.gorsel.toString(), element.il.toString()];
-    }).toList();
+
 
     String sehir = widget.seciliSehir;
 
     return Padding(
       padding: EdgeInsets.only(left: 19, right: 19, bottom: 19),
       child: Container(
-        width: context.phoneSizeWidth(0.9),
-        height: context.phoneSizeHeight(0.8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Colors.white,
         ),
-        child: ListView.builder(
-          itemCount: sehirGorselleriVeIsimler.length,
-          itemBuilder: (context, index) {
-            return Padding(
+        child: Column(
+          children: [
+            ...List.generate(widget.sehirGorselleriVeIsimler.length, (index) => Padding(
               padding: const EdgeInsets.all(15.0),
               child: Card(
                 child: Opacity(
-                  opacity: sehir == sehirGorselleriVeIsimler[index][1] ? 1.0 : 0.5,
+                  opacity: sehir == widget.sehirGorselleriVeIsimler[index][1] ? 1.0 : 0.5,
                   child: GestureDetector(
                     onTap: () {
-                      widget.seciliSehir=sehirGorselleriVeIsimler[index][1];
+                      widget.seciliSehir=widget.sehirGorselleriVeIsimler[index][1];
                       setState(() {});
 
                     },
@@ -200,14 +199,14 @@ class _LokasyonWidgetState extends State<LokasyonWidget> {
                           borderRadius: BorderRadius.circular(12),
                           child: Image(
                             fit: BoxFit.cover,
-                            image: NetworkImage(sehirGorselleriVeIsimler[index][0]),
+                            image: NetworkImage(widget.sehirGorselleriVeIsimler[index][0]),
                           ),
                         ),
                         Positioned(
                           bottom: 35,
                           left: 15,
                           child: Text(
-                            sehirGorselleriVeIsimler[index][1],
+                            widget.sehirGorselleriVeIsimler[index][1],
                             style: Strings().interTight.copyWith(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w700,
@@ -225,13 +224,14 @@ class _LokasyonWidgetState extends State<LokasyonWidget> {
                                 color: Colors.white),
                           ),
                         ),
+
                       ],
                     ),
                   ),
                 ),
               ),
-            );
-          },
+            ))
+          ],
         ),
       ),
     );
@@ -244,7 +244,7 @@ class _LokasyonWidgetState extends State<LokasyonWidget> {
 
     List<String> limanlar = sehirList
         .where((element) => element.il == sehir)
-        .expand((element) => element.yerler!)
+        .expand((element) => element.yerler)
         .toList();
 
     bool containsString(List<String> list, String searchString) {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'package:sabo_software/HomePage.dart';
 import 'package:sabo_software/provider/AnaLimanProvider.dart';
 import 'package:sabo_software/provider/EkstraUcretLimanlarProvider.dart';
 import 'package:sabo_software/provider/SeciliWidgetProvider.dart';
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.interTightTextTheme(),
       ),
-      home: SafeArea(child: HomePage(),)
+      home: SafeArea(child: TumTasitlerWidget(),)
     );
   }
 }

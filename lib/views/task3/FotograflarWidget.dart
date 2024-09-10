@@ -203,7 +203,7 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
                 height: 56,
                 child: Center(
                   child: Text(
-                    "Değişikleri Kaydet",
+                    "Değişiklikleri Kaydet",
                     style: GoogleFonts.interTight().copyWith(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -247,11 +247,7 @@ class _DeleteButtonState extends State<DeleteButton> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                height: 20,
-              "assets/Delete 2.svg",
-                color: Colors.red,
-          ),
+              Image.asset("lib/assets/icons/delete_2.png"),
               Text(
                 "Sil",
                 style: GoogleFonts.inter().copyWith(
