@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sabo_software/api_services/api_services_helper.dart';
 import 'package:sabo_software/api_services/sehir_model.dart';
 import 'package:sabo_software/const/AppColor.dart';
@@ -9,6 +10,7 @@ import 'package:sabo_software/views/task1/AppBarWidget.dart';
 import 'package:sabo_software/views/task1/ScroolHorizontalWidget.dart';
 import 'package:sabo_software/views/task1/TasitlarimAppBarWidget.dart';
 import 'package:sabo_software/views/task3/FotograflarWidget.dart';
+import 'package:sabo_software/views/task4/TumTasitlarWidget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -37,11 +39,12 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            AppBarWidget(),
-            TasitlariAppBarWidget(),
-            ScroolHorizontalWidget(),
+            // AppBarWidget(),
+            // TasitlariAppBarWidget(),
+            // ScroolHorizontalWidget(),
             //ServislerWidget(),
-            FotograflarWidget()
+            //FotograflarWidget(),
+
           ],
         ),
       ),

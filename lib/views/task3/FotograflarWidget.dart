@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -65,8 +66,8 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
                         children: [
                           Container(
                             child: SizedBox(
-                              width: 800,
-                              height: 200,
+                              width: MediaQuery.of(context).size.width*0.9,
+                              height: 220,
                               child: ClipRRect(
                                   borderRadius: BorderRadius.circular(12),
                                   child: xFileList.isNotEmpty
@@ -81,7 +82,7 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
                           Positioned(
                             right: 10,
                             top: 10,
-                            child: NewWidget(
+                            child: DeleteButton(
                               onPressed: () {
                                 if (xFileList.isNotEmpty) {
                                   setState(() {
@@ -108,19 +109,16 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
                                   color: Colors.black45.withOpacity(0.7),
                                   borderRadius: BorderRadius.circular(45),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SizedBox(
-                                    width: 66,
-                                    height: 40,
-                                    child: Center(
-                                      child: Text(
-                                        style: const TextStyle(
-                                            color: Colors.white),
-                                        xFileList.isNotEmpty
-                                            ? "${index + 1}/${xFileList.length}"
-                                            : "0/0",
-                                      ),
+                                child: SizedBox(
+                                  width: 65,
+                                  height: 40,
+                                  child: Center(
+                                    child: Text(
+                                      style: const TextStyle(
+                                          color: Colors.white),
+                                      xFileList.isNotEmpty
+                                          ? "${index + 1}/${xFileList.length}"
+                                          : "0/0",
                                     ),
                                   ),
                                 ),
@@ -177,6 +175,7 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
                                 });
                               },
                               child: Container(
+                                //seçili durumda border olacak.
                                 margin:
                                     const EdgeInsets.symmetric(horizontal: 5),
                                 height: 80,
@@ -205,14 +204,14 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
                 width: double.infinity,
                 height: 56,
                 child: Center(
-                    child: Text(
-                  "Değişikleri Kaydet",
-                  style: GoogleFonts.interTight().copyWith(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white
+                  child: Text(
+                    "Değişikleri Kaydet",
+                    style: GoogleFonts.interTight().copyWith(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white),
                   ),
-                )),
+                ),
               )
             ],
           ),
@@ -222,18 +221,18 @@ class _FotograflarWidgetState extends State<FotograflarWidget> {
   }
 }
 
-class NewWidget extends StatefulWidget {
+class DeleteButton extends StatefulWidget {
   final VoidCallback onPressed;
-  NewWidget({
+  DeleteButton({
     super.key,
     required this.onPressed,
   });
 
   @override
-  State<NewWidget> createState() => _NewWidgetState();
+  State<DeleteButton> createState() => _DeleteButtonState();
 }
 
-class _NewWidgetState extends State<NewWidget> {
+class _DeleteButtonState extends State<DeleteButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -250,7 +249,11 @@ class _NewWidgetState extends State<NewWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset("lib/assets/icons/delete_2.png"),
+              SvgPicture.asset(
+                height: 20,
+              "assets/Delete 2.svg",
+                color: Colors.red,
+          ),
               Text(
                 "Sil",
                 style: GoogleFonts.inter().copyWith(
