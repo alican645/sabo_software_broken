@@ -7,6 +7,7 @@ import 'package:sabo_software/provider/EkstraUcretLimanlarProvider.dart';
 import 'package:sabo_software/provider/SeciliWidgetProvider.dart';
 import 'package:sabo_software/provider/SehirProvider.dart';
 import 'package:sabo_software/views/task4/TumTasitlarWidget.dart';
+import 'package:sabo_software/views/task5/TasitlarDetayPage.dart';
 
 
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.interTightTextTheme(),
       ),
-      home: SafeArea(child: TumTasitlerWidget(),)
+      home: SafeArea(child: TasitlarDeetayPage(),)
     );
   }
 }
