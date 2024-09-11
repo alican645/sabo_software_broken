@@ -17,26 +17,32 @@ class TasitlarDeetayPage extends StatefulWidget {
 }
 
 class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
-
-
-
-  bool _isPressed=false;
+  bool _isPressed = false;
 
   // Dropdown menüsünde gösterilecek öğeler
-  final List<String> _itemListModel = ["Item 1 ListModel", "Item 2 ListModel", "Item 3 ListModel", "Item 4 ListModel"];
-  String _selectedItemModel="Item 1 ListModel";
+  final List<String> _itemListModel = [
+    "Item 1 ListModel",
+    "Item 2 ListModel",
+    "Item 3 ListModel",
+    "Item 4 ListModel"
+  ];
+  String _selectedItemModel = "Item 1 ListModel";
 
-  final List<String> _itemListTasitTipi = ["Item 1 TasitTipi", "Item 2 TasitTipi", "Item 3 TasitTipi", "Item 4 TasitTipi"];
-  String _selectedItemTasitTipi="Item 1 TasitTipi";
+  final List<String> _itemListTasitTipi = [
+    "Item 1 TasitTipi",
+    "Item 2 TasitTipi",
+    "Item 3 TasitTipi",
+    "Item 4 TasitTipi"
+  ];
+  String _selectedItemTasitTipi = "Item 1 TasitTipi";
 
-  final List<String> _itemListYapiModel = ["Item 1 YapiModel", "Item 2 YapiModel", "Item 3 YapiModel", "Item 4 YapiModel"];
-  String _selectedItemYapiModel="Item 1 YapiModel";
-
-  // final List<String> _itemListModel = ["Item 1", "Item 2", "Item 3", "Item 4"];
-  // String _selectedItemModel="Item 1";
-
-
-
+  final List<String> _itemListYapiModel = [
+    "Item 1 YapiModel",
+    "Item 2 YapiModel",
+    "Item 3 YapiModel",
+    "Item 4 YapiModel"
+  ];
+  String _selectedItemYapiModel = "Item 1 YapiModel";
 
   String _selectedItemBayrak = 'tr'; // Türkiye
   final List<Map<String, String>> _itemListBayrak = [
@@ -285,9 +291,10 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                           _selectedItemTasitTipi,
                           _itemListTasitTipi,
                           GoogleFonts.inter(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xff526675),),
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xff526675),
+                          ),
                         ),
                         _buildTextFieldwidgetArea(
                             false,
@@ -301,15 +308,14 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                             TextInputType.text,
                             _markaController),
                         _buildDropdown(
-                            "Model",
-                            mqWidth,
-                            _selectedItemModel,
-                            _itemListModel,
-                            GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff526675)),
-
+                          "Model",
+                          mqWidth,
+                          _selectedItemModel,
+                          _itemListModel,
+                          GoogleFonts.inter(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xff526675)),
                         ),
                         _buildTextFieldwidgetArea(
                             false,
@@ -372,31 +378,37 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xff526675))),
                         GestureDetector(
-                            onTapDown: (_) {
-                              setState(() {
-                                _isPressed = true;
-                              });
-                            },
-                            onTapUp: (_) {
-                              setState(() {
-                                _isPressed = false;
-                              });
-                              // Tıklama sonrasında yapılacak işlem
-                            },
-                            onTapCancel: () {
-                              setState(() {
-                                _isPressed = false;
-                              });
-                            },
+                          onTapDown: (_) {
+                            setState(() {
+                              _isPressed = true;
+                            });
+                          },
+                          onTapUp: (_) {
+                            setState(() {
+                              _isPressed = false;
+                            });
+                            // Tıklama sonrasında yapılacak işlem
+                          },
+                          onTapCancel: () {
+                            setState(() {
+                              _isPressed = false;
+                            });
+                          },
                           child: Container(
                               width: mqWidth * 0.8,
                               height: 56,
                               decoration: BoxDecoration(
-                                color: _isPressed==false?Color(0xff189DFD):Color(0xff189DFD).withOpacity(0.5),
-                                  borderRadius: BorderRadius.circular(200),
-                                 ),
-                              child:
-                                  Center(child: Text("Değişiklikleri Kaydet"))),
+                                color: _isPressed == false
+                                    ? Color(0xff189DFD)
+                                    : Color(0xff189DFD).withOpacity(0.5),
+                                borderRadius: BorderRadius.circular(200),
+                              ),
+                              child: Center(
+                                  child: Text("Değişiklikleri Kaydet",
+                                      style: GoogleFonts.inter(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white)))),
                         )
                       ],
                     )),
@@ -427,7 +439,8 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
               child: Text(title, style: textStyle),
             ),
           ),
-          _buildTextField(paddingZero,mqWidth, icon, textInputType, textEditingController)
+          _buildTextField(
+              paddingZero, mqWidth, icon, textInputType, textEditingController)
         ],
       ),
     );
@@ -446,7 +459,9 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: Colors.grey.shade300, width: 1.5)),
       child: Padding(
-        padding:  paddingZero == true ? EdgeInsets.zero:EdgeInsets.symmetric(horizontal: 8),
+        padding: paddingZero == true
+            ? EdgeInsets.zero
+            : EdgeInsets.symmetric(horizontal: 8),
         child: TextField(
           controller: textEditingController,
           keyboardType: textInputType,
@@ -460,12 +475,11 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
   }
 
   Padding _buildDropdown(
-     String title,          // Dropdown başlığı
-     double mqWidth,        // Ekran genişliği
-     String selectedValue,  // Seçilen değer
-     List<String> itemList, // Dropdown'a ait veriler
-     TextStyle textStyle,   // Başlık yazı stili
-
+    String title, // Dropdown başlığı
+    double mqWidth, // Ekran genişliği
+    String selectedValue, // Seçilen değer
+    List<String> itemList, // Dropdown'a ait veriler
+    TextStyle textStyle, // Başlık yazı stili
   ) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 5, 10, 5),
@@ -495,9 +509,9 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                   filled: true,
                   fillColor: Colors.white,
                 ),
-                value: selectedValue,  // Seçilen değer
-                icon: Icon(Icons.arrow_drop_down),
-                isExpanded: true,      // Genişliği doldurması için
+                value: selectedValue, // Seçilen değer
+                icon: Icon(Icons.keyboard_arrow_down_outlined),
+                isExpanded: true, // Genişliği doldurması için
                 items: itemList.map((String item) {
                   return DropdownMenuItem<String>(
                     value: item,
@@ -511,10 +525,10 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                     ),
                   );
                 }).toList(),
-                onChanged: (newValue){
-                  selectedValue=newValue!;
+                onChanged: (newValue) {
+                  selectedValue = newValue!;
                   setState(() {});
-                },  // Seçim değiştiğinde tetiklenen callback
+                }, // Seçim değiştiğinde tetiklenen callback
               ),
             ),
           ),
@@ -523,9 +537,8 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
     );
   }
 
-
-  Padding _buildDropdownBayrak(String title, double mqWidth,
-       TextStyle textStyle) {
+  Padding _buildDropdownBayrak(
+      String title, double mqWidth, TextStyle textStyle) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 5, 10, 5),
       child: Column(
@@ -569,7 +582,9 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                         width: 30,
                         height: 20,
                       ),
-                      SizedBox(width: mqWidth*0.05,),
+                      SizedBox(
+                        width: mqWidth * 0.05,
+                      ),
                       Text(
                         country['name']!,
                         style: GoogleFonts.inter(

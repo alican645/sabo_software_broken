@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sabo_software/HomePage.dart';
 
 import 'package:sabo_software/provider/AnaLimanProvider.dart';
 import 'package:sabo_software/provider/EkstraUcretLimanlarProvider.dart';
@@ -8,6 +9,7 @@ import 'package:sabo_software/provider/SeciliWidgetProvider.dart';
 import 'package:sabo_software/provider/SehirProvider.dart';
 import 'package:sabo_software/views/task4/TumTasitlarWidget.dart';
 import 'package:sabo_software/views/task5/TasitlarDetayPage.dart';
+import 'package:sabo_software/views/task6/SartlarPage.dart';
 
 
 
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.interTightTextTheme(),
       ),
-      home: SafeArea(child: TasitlarDeetayPage(),)
+      home: SafeArea(child: SartlarPage(),)
     );
   }
 }

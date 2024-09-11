@@ -8,6 +8,7 @@ import 'package:sabo_software/views/task1/AppBarWidget.dart';
 
 import 'package:sabo_software/views/task1/ScroolHorizontalWidget.dart';
 import 'package:sabo_software/views/task1/TasitlarimAppBarWidget.dart';
+import 'package:sabo_software/views/task2/ServislerWidget.dart';
 import 'package:sabo_software/views/task3/FotograflarWidget.dart';
 
 class HomePage extends StatefulWidget {
@@ -39,7 +40,8 @@ class _HomePageState extends State<HomePage> {
              AppBarWidget(),
              TasitlariAppBarWidget(),
              ScroolHorizontalWidget(),
-             FotograflarWidget()
+             FotograflarWidget(),
+            ServislerWidget()
 
 
 
