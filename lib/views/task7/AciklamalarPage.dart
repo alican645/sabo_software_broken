@@ -38,15 +38,21 @@ class _AciklamalarPageState extends State<AciklamalarPage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Açıklamalar",
-                        style: GoogleFonts.interTight(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xff1A2228)),
-                      ),
+                    Row(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Açıklamalar",
+                            style: GoogleFonts.interTight(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xff1A2228)),
+                          ),
+                        ),
+                        SizedBox(width: 5,),
+                        SvgPicture.asset("assets/svg/info_circle.svg")
+                      ],
                     ),
                     _buildTextField(title: "Türkçe Açıklama",textEditingController: _trAciklmaController),
                     _buildTextField(title: "İngilizce Açıklama",textEditingController: _enAciklamaController),
