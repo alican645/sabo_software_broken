@@ -35,64 +35,66 @@ class _AciklamalarPageState extends State<AciklamalarPage> {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: IntrinsicHeight(
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Açıklamalar",
-                      style: GoogleFonts.interTight(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff1A2228)),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Açıklamalar",
+                        style: GoogleFonts.interTight(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff1A2228)),
+                      ),
                     ),
-                  ),
-                  _buildTextField(title: "Türkçe Açıklama",textEditingController: _trAciklmaController),
-                  _buildTextField(title: "İngilizce Açıklama",textEditingController: _enAciklamaController),
-                  SizedBox(height: 22,),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(12),
-                          bottomRight: Radius.circular(12)),
-                    ),
-                    child: GestureDetector(
-                      onTapDown: (_) {
-                        setState(() {
-                          _isPressed = true;
-                        });
-                      },
-                      onTapUp: (_) {
-                        setState(() {
-                          _isPressed = false;
-                        });
-                        // Tıklama sonrasında yapılacak işlem
-                      },
-                      onTapCancel: () {
-                        setState(() {
-                          _isPressed = false;
-                        });
-                      },
-                      child: Container(
-                          height: 56,
-                          decoration: BoxDecoration(
-                            color: _isPressed == false
-                                ? Color(0xff189DFD)
-                                : Color(0xff189DFD).withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(200),
-                          ),
-                          child: Center(
-                              child: Text(
-                                "Değişiklikleri Kaydet",
-                                style: GoogleFonts.inter(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white),
-                              ))),
-                    ),
-                  )
-                ],
+                    _buildTextField(title: "Türkçe Açıklama",textEditingController: _trAciklmaController),
+                    _buildTextField(title: "İngilizce Açıklama",textEditingController: _enAciklamaController),
+                    SizedBox(height: 22,),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(12),
+                            bottomRight: Radius.circular(12)),
+                      ),
+                      child: GestureDetector(
+                        onTapDown: (_) {
+                          setState(() {
+                            _isPressed = true;
+                          });
+                        },
+                        onTapUp: (_) {
+                          setState(() {
+                            _isPressed = false;
+                          });
+                          // Tıklama sonrasında yapılacak işlem
+                        },
+                        onTapCancel: () {
+                          setState(() {
+                            _isPressed = false;
+                          });
+                        },
+                        child: Container(
+                            height: 56,
+                            decoration: BoxDecoration(
+                              color: _isPressed == false
+                                  ? Color(0xff189DFD)
+                                  : Color(0xff189DFD).withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(200),
+                            ),
+                            child: Center(
+                                child: Text(
+                                  "Değişiklikleri Kaydet",
+                                  style: GoogleFonts.inter(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white),
+                                ))),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
