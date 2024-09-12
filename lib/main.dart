@@ -11,6 +11,7 @@ import 'package:sabo_software/views/task4/TumTasitlarWidget.dart';
 import 'package:sabo_software/views/task5/TasitlarDetayPage.dart';
 import 'package:sabo_software/views/task6/SartlarPage.dart';
 import 'package:sabo_software/views/task7/AciklamalarPage.dart';
+import 'package:sabo_software/views/task8/OrganizasyonlarPage.dart';
 
 
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.interTightTextTheme(),
       ),
-      home: SafeArea(child: AciklamalarPage(),)
+      home: SafeArea(child: SartlarPage(),)
     );
   }
 }

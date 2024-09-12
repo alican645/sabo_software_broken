@@ -104,12 +104,20 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                           color: Colors.white),
                       child: Column(
                         children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "İşletme Tipi",
-                              style: GoogleFonts.interTight(
-                                  fontSize: 17, fontWeight: FontWeight.w600),
+                          Padding(
+                            padding:  EdgeInsets.only(left: 8.0),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "İşletme Tipi",
+                                    style: GoogleFonts.interTight(
+                                        fontSize: 17, fontWeight: FontWeight.w600),
+                                  ),
+                                  IconButton(icon: SvgPicture.asset("assets/svg/info_circle.svg"),onPressed:(){})
+                                ],
+                              ),
                             ),
                           ),
                           Container(

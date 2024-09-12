@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../const/AppColor.dart';
@@ -269,16 +270,20 @@ class _SartlarPageState extends State<SartlarPage> {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(8.0, 5, 8, 10),
-            child: Text(
-              title,
-              style: textStyle,
+            child: Row(
+              children: [
+                Text(
+                  title,
+                  style: textStyle,
+                ),
+              ],
             ),
           ),
           Container(
             width: mqWidth * 0.8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.grey.shade300, width: 1.5),
+              border: Border.all(color: Colors.grey.shade200, width: 1.5),
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField<String>(

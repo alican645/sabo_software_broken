@@ -51,7 +51,7 @@ class _AciklamalarPageState extends State<AciklamalarPage> {
                           ),
                         ),
                         SizedBox(width: 5,),
-                        SvgPicture.asset("assets/svg/info_circle.svg")
+                        IconButton(icon: SvgPicture.asset("assets/svg/info_circle.svg"),onPressed:(){})
                       ],
                     ),
                     _buildTextField(title: "Türkçe Açıklama",textEditingController: _trAciklmaController),
