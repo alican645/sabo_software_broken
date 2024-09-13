@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -26,7 +27,7 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
     "Item 3 ListModel",
     "Item 4 ListModel"
   ];
-  String _selectedItemModel = "Item 1 ListModel";
+  String? _selectedItemModel ;
 
   final List<String> _itemListTasitTipi = [
     "Item 1 TasitTipi",
@@ -34,7 +35,7 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
     "Item 3 TasitTipi",
     "Item 4 TasitTipi"
   ];
-  String _selectedItemTasitTipi = "Item 1 TasitTipi";
+  String? _selectedItemTasitTipi ;
 
   final List<String> _itemListYapiModel = [
     "Item 1 YapiModel",
@@ -42,9 +43,9 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
     "Item 3 YapiModel",
     "Item 4 YapiModel"
   ];
-  String _selectedItemYapiModel = "Item 1 YapiModel";
+  String? _selectedItemYapiModel ;
 
-  String _selectedItemBayrak = 'tr'; // Türkiye
+  String? _selectedItemBayrak ; // Türkiye
   final List<Map<String, String>> _itemListBayrak = [
     {'name': 'Turkey', 'code': 'tr'},
     {'name': 'Germany', 'code': 'de'},
@@ -115,7 +116,12 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                                     style: GoogleFonts.interTight(
                                         fontSize: 17, fontWeight: FontWeight.w600),
                                   ),
-                                  IconButton(icon: SvgPicture.asset("assets/svg/info_circle.svg"),onPressed:(){})
+                                  SizedBox(width: 5,),
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: SvgPicture.asset(
+                                        "assets/svg/info_circle.svg"),
+                                  )
                                 ],
                               ),
                             ),
@@ -153,7 +159,7 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                                             "assets/svg/time_circle.svg",
                                             color: widget.isletmeTipiValue == 1
                                                 ? const Color(0xff189DFD)
-                                                : Colors.black,
+                                                : Color(0xff526675),
                                           ),
                                           Text(
                                             "Saatlik",
@@ -163,7 +169,7 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                                               color:
                                                   widget.isletmeTipiValue == 1
                                                       ? const Color(0xff189DFD)
-                                                      : Colors.black,
+                                                      : Color(0xff526675),
                                             ),
                                           )
                                         ],
@@ -193,7 +199,7 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                                             "assets/svg/calendar.svg",
                                             color: widget.isletmeTipiValue == 2
                                                 ? const Color(0xff189DFD)
-                                                : Colors.black,
+                                                : Color(0xff526675),
                                           ),
                                           Text(
                                             "Günlük & Haftalık",
@@ -203,7 +209,7 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                                               color:
                                                   widget.isletmeTipiValue == 2
                                                       ? const Color(0xff189DFD)
-                                                      : Colors.black,
+                                                      : Color(0xff526675),
                                             ),
                                           )
                                         ],
@@ -221,7 +227,7 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 12,
               ),
               ///////////////////////////////////////////////////////////////////////////>>>>>>>>>Tam Kapasite
               Container(
@@ -230,18 +236,17 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.white),
-                child: _buildTextFieldwidgetArea(
-                    true,
-                    mqWidth,
-                    "Tam Kapasite",
-                    ImageIcon(AssetImage("assets/images/user.png")),
-                    GoogleFonts.interTight(
-                        fontSize: 17, fontWeight: FontWeight.w600),
-                    TextInputType.number,
-                    _tamKapasiteController),
+                  child: _buildTextField(
+                    hintText: "Tam Kapasite",
+                    paddingZero: true,
+                    mqWidth: mqWidth,
+                    title: "Tam Kapasite",
+                    icon: ImageIcon(AssetImage("assets/images/user.png")),
+                    textInputType: TextInputType.number,
+                    textEditingController: _tamKapasiteController),
               ),
               const SizedBox(
-                height: 40,
+                height: 12,
               ),
               ///////////////////////////////////////////////////////////////////////////>>>>>>>>>Yemekli Kapasite
               Container(
@@ -250,18 +255,17 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.white),
-                child: _buildTextFieldwidgetArea(
-                    true,
-                    mqWidth,
-                    "Yemekli Kapasite",
-                    ImageIcon(AssetImage("assets/images/knife_fork.png")),
-                    GoogleFonts.interTight(
-                        fontSize: 17, fontWeight: FontWeight.w600),
-                    TextInputType.number,
-                    _yemekliKapasiteController),
+                child: _buildTextField(
+                    hintText: "Yemekli Kapasite",
+                    paddingZero: true,
+                    mqWidth: mqWidth,
+                    title: "Yemekli Kapasite",
+                    icon: ImageIcon(AssetImage("assets/images/knife_fork.png")),
+                    textInputType: TextInputType.number,
+                    textEditingController: _yemekliKapasiteController),
               ),
               const SizedBox(
-                height: 40,
+                height: 12,
               ),
               ///////////////////////////////////////////////////////////////////////////>>>>>>>>>Tekne Özellikleri
               Container(
@@ -282,109 +286,95 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                                       fontSize: 17,
                                       fontWeight: FontWeight.w600)),
                             )),
-                        _buildTextFieldwidgetArea(
-                            false,
-                            mqWidth,
-                            "Taşıt Adı",
-                            null,
-                            GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff526675)),
-                            TextInputType.text,
-                            _tasitAdiController),
+                          _buildTextField(
+                            hintText: "Taşıt Adını Giriniz",
+                            paddingZero: false,
+                            mqWidth: mqWidth,
+                            title: "Taşıt Adı",
+                            icon: null,
+                            textInputType: TextInputType.text,
+                            textEditingController: _tasitAdiController),
                         _buildDropdown(
-                          "Taşıt Tipi",
-                          mqWidth,
-                          _selectedItemTasitTipi,
-                          _itemListTasitTipi,
-                          GoogleFonts.inter(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff526675),
-                          ),
+                          onChangedCallback: (p0) {
+                            setState(() {
+                              _selectedItemTasitTipi = p0;
+                            });
+                          },
+                          hintText: "Taşıt Tipi Seçiniz",
+                          title: "Taşıt Tipi",
+                          mqWidth: mqWidth,
+                          selectedValue: _selectedItemTasitTipi,
+                          itemList: _itemListTasitTipi,
                         ),
-                        _buildTextFieldwidgetArea(
-                            false,
-                            mqWidth,
-                            "Marka",
-                            null,
-                            GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff526675)),
-                            TextInputType.text,
-                            _markaController),
+                        _buildTextField(
+                            hintText: "Markayı Giriniz",
+                            paddingZero: false,
+                            mqWidth: mqWidth,
+                            title: "Marka",
+                            icon: null,
+                            textInputType: TextInputType.text,
+                            textEditingController: _markaController),
                         _buildDropdown(
-                          "Model",
-                          mqWidth,
-                          _selectedItemModel,
-                          _itemListModel,
-                          GoogleFonts.inter(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xff526675)),
+                          onChangedCallback: (p0) {
+                            setState(() {
+                              _selectedItemModel = p0;
+                            });
+                          },
+                          hintText: "Model Seçiniz",
+                          title: "Model",
+                          mqWidth: mqWidth,
+                          selectedValue: _selectedItemModel,
+                          itemList: _itemListModel,
                         ),
-                        _buildTextFieldwidgetArea(
-                            false,
-                            mqWidth,
-                            "Yapım Yılı",
-                            null,
-                            GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff526675)),
-                            TextInputType.number,
-                            _yapimTiliContoller),
-                        _buildTextFieldwidgetArea(
-                            false,
-                            mqWidth,
-                            "Bakım/Onarım Yılı",
-                            null,
-                            GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff526675)),
-                            TextInputType.number,
-                            _bakimOnarimYiliController),
-                        _buildTextFieldwidgetArea(
-                            false,
-                            mqWidth,
-                            "Taşıt Uzunluğu",
-                            null,
-                            GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff526675)),
-                            TextInputType.number,
-                            _tasitUzunluguController),
-                        _buildTextFieldwidgetArea(
-                            false,
-                            mqWidth,
-                            "Tuvalet Sayısı",
-                            null,
-                            GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff526675)),
-                            TextInputType.number,
-                            _tuvaletSayisiController),
+                        _buildTextField(
+                            hintText: "Yapım Yılını Giriniz",
+                            paddingZero: false,
+                            mqWidth: mqWidth,
+                            title: "Yapım Yılı",
+                            icon: null,
+                            textInputType: TextInputType.number,
+                            textEditingController: _yapimTiliContoller),
+                        _buildTextField(
+                            hintText: "Bakım/Onarım Yılını Giriniz",
+                            paddingZero: false,
+                            mqWidth: mqWidth,
+                            title: "Bakım/Onarım Yılı",
+                            icon: null,
+                            textInputType: TextInputType.number,
+                            textEditingController: _bakimOnarimYiliController),
+                        _buildTextField(
+                            hintText: "Taşıt Uzunluğunu Giriniz",
+                            paddingZero: false,
+                            mqWidth: mqWidth,
+                            title: "Taşıt Uzunluğu",
+                            icon: null,
+                            textInputType: TextInputType.number,
+                            textEditingController: _tasitUzunluguController),
+                        _buildTextField(
+                            hintText: "Tuvalet Sayısıni Giriniz",
+                            paddingZero: false,
+                            mqWidth: mqWidth,
+                            title: "Tuvalet Sayısı",
+                            icon: null,
+                            textInputType: TextInputType.number,
+                            textEditingController: _tuvaletSayisiController),
                         _buildDropdownBayrak(
-                            "Bayrak",
-                            mqWidth,
-                            GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff526675))),
+                            title: "Bayrak",
+                            mqWidth: mqWidth,
+                            ),
                         _buildDropdown(
-                            "Yapı Malzemesi",
-                            mqWidth,
-                            _selectedItemYapiModel,
-                            _itemListYapiModel,
-                            GoogleFonts.inter(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xff526675))),
+                          onChangedCallback: (p0) {
+                            setState(() {
+                              _selectedItemYapiModel = p0;
+                            });
+                          },
+                            hintText: "Yapı Malzemesi Seçiniz",
+                            title: "Yapı Malzemesi",
+                            mqWidth: mqWidth,
+                            selectedValue: _selectedItemYapiModel,
+                            itemList: _itemListYapiModel,
+                            ),
+                            SizedBox(height: 12,),
                         GestureDetector(
                           onTapDown: (_) {
                             setState(() {
@@ -428,67 +418,69 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
     );
   }
 
-  Padding _buildTextFieldwidgetArea(
-      bool paddingZero,
-      double mqWidth,
-      String title,
-      Widget? icon,
-      TextStyle textStyle,
-      TextInputType textInputType,
-      TextEditingController textEditingController) {
+
+
+  Padding _buildTextField({
+      required bool paddingZero,
+      required double mqWidth,
+      required String title,
+      required Widget? icon,
+      required TextInputType textInputType,
+      required TextEditingController textEditingController,
+      required String hintText}) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 5, 10, 5),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,  // Başlık ile hizalanması için
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8.0, 5, 8, 10),
+            child: Text(title, style: paddingZero == true ? GoogleFonts.inter(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff1A2228)) : GoogleFonts.inter(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xff526675))),
+          ),
+          Container(
+            width: mqWidth * 0.8,
+            height: 56,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: Colors.grey.shade300, width: 1.5),
+            ),
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(8.0, 5, 8, 10),
-              child: Text(title, style: textStyle),
+              padding: paddingZero == true
+                  ? EdgeInsets.zero
+                  : EdgeInsets.symmetric(horizontal: 8),
+              child: TextField(
+                style:GoogleFonts.inter(fontSize: 15,fontWeight: FontWeight.w400,color: Color(0xff1A2228)),
+                controller: textEditingController,
+                keyboardType: textInputType,
+                decoration: InputDecoration(
+                  hintText: hintText,
+                  hintStyle: GoogleFonts.inter(fontSize: 15,fontWeight: FontWeight.w400,color: Color(0xff526675)),
+                  prefixIcon: icon, // Soldaki ikon
+                  border: InputBorder.none,
+                ),
+              ),
             ),
           ),
-          _buildTextField(
-              paddingZero, mqWidth, icon, textInputType, textEditingController)
         ],
       ),
     );
   }
 
-  Container _buildTextField(
-      bool paddingZero,
-      double mqWidth,
-      Widget? icon,
-      TextInputType textInputType,
-      TextEditingController textEditingController) {
-    return Container(
-      width: mqWidth * 0.8,
-      height: 56,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.grey.shade300, width: 1.5)),
-      child: Padding(
-        padding: paddingZero == true
-            ? EdgeInsets.zero
-            : EdgeInsets.symmetric(horizontal: 8),
-        child: TextField(
-          controller: textEditingController,
-          keyboardType: textInputType,
-          decoration: InputDecoration(
-            prefixIcon: icon, // Solda gösterilen ikon
-            border: InputBorder.none,
-          ),
-        ),
-      ),
-    );
-  }
 
-  Padding _buildDropdown(
-    String title, // Dropdown başlığı
-    double mqWidth, // Ekran genişliği
-    String selectedValue, // Seçilen değer
-    List<String> itemList, // Dropdown'a ait veriler
-    TextStyle textStyle, // Başlık yazı stili
-  ) {
+  Padding _buildDropdown({
+    required String title, // Dropdown başlığı
+    required double mqWidth, // Ekran genişliği
+    required String? selectedValue, // Seçilen değer
+    required List<String> itemList, 
+    required String hintText,// Dropdown'a ait veriler
+    required Function(String?) onChangedCallback
+  }) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 5, 10, 5),
       child: Column(
@@ -498,14 +490,17 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
             padding: const EdgeInsets.fromLTRB(8.0, 5, 8, 10),
             child: Text(
               title,
-              style: textStyle,
+              style: GoogleFonts.inter(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xff526675)),
             ),
           ),
           Container(
             width: mqWidth * 0.8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.grey.shade300, width: 1.5),
+              border: Border.all(color:selectedValue != null ? const Color(0xff189DFD)  :Colors.grey.shade300 , width: 1.5),
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButtonFormField<String>(
@@ -517,8 +512,9 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                   filled: true,
                   fillColor: Colors.white,
                 ),
+                hint: Text(hintText),
                 value: selectedValue, // Seçilen değer
-                icon: Icon(Icons.keyboard_arrow_down_outlined),
+                icon: Icon(selectedValue != null ? Icons.keyboard_arrow_up_outlined : Icons.keyboard_arrow_down_outlined,),
                 isExpanded: true, // Genişliği doldurması için
                 items: itemList.map((String item) {
                   return DropdownMenuItem<String>(
@@ -534,8 +530,7 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                   );
                 }).toList(),
                 onChanged: (newValue) {
-                  selectedValue = newValue!;
-                  setState(() {});
+                  onChangedCallback(newValue);
                 }, // Seçim değiştiğinde tetiklenen callback
               ),
             ),
@@ -545,8 +540,10 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
     );
   }
 
-  Padding _buildDropdownBayrak(
-      String title, double mqWidth, TextStyle textStyle) {
+  Padding _buildDropdownBayrak({
+    required String title,
+    required double mqWidth,
+  }) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 5, 10, 5),
       child: Column(
@@ -557,7 +554,10 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
               padding: const EdgeInsets.fromLTRB(8.0, 5, 8, 10),
               child: Text(
                 title,
-                style: textStyle,
+                style: GoogleFonts.inter(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xff526675)),
               ),
             ),
           ),
@@ -565,7 +565,9 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
             width: mqWidth * 0.8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.grey.shade300, width: 1.5),
+              border: Border.all(
+                color:_selectedItemBayrak != null ? Color(0xff189DFD)  :Colors.grey.shade300, 
+                width: 1.5),
             ),
             child: DropdownButtonFormField<String>(
               decoration: InputDecoration(
@@ -576,8 +578,9 @@ class _TasitlarDeetayPageState extends State<TasitlarDeetayPage> {
                 filled: true, // Arka plan rengini doldurur
                 fillColor: Colors.white, // Arka plan rengi
               ),
+              hint: Text("Ülke Seçiniz"),
               value: _selectedItemBayrak,
-              icon: Icon(Icons.arrow_drop_down),
+              icon: Icon(_selectedItemBayrak != null ? Icons.keyboard_arrow_up_outlined : Icons.keyboard_arrow_down_outlined,),
               isExpanded: true, // Tüm genişliği kaplaması için
               items: _itemListBayrak.map((country) {
                 return DropdownMenuItem<String>(

@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.interTightTextTheme(),
       ),
-      home: SafeArea(child: SartlarPage(),)
+      home: SafeArea(child: TasitlarDeetayPage(),)
     );
   }
 }

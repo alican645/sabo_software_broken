@@ -110,39 +110,39 @@ class _SartlarPageState extends State<SartlarPage> {
                                       fontWeight: FontWeight.w600)),
                             )),
                         _buildDropdown(
-                          "İptal Politikası",
-                          mqWidth,
-                          _selectedIptalPolitikasi,
-                          _itemListIptalPolitikasi,
-                          GoogleFonts.inter(
+                          title: "İptal Politikası",
+                          mqWidth: mqWidth,
+                          selectedValue: _selectedIptalPolitikasi,
+                          itemList: _itemListIptalPolitikasi,
+                          textStyle: GoogleFonts.inter(
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
                               color: Color(0xff526675)),
                         ),
                         _buildDropdown(
-                            "Minimum Kiralama Süresi",
-                            mqWidth,
-                            _selectedItemMinKiSu,
-                            _itemListMinKiSu,
-                            GoogleFonts.inter(
+                            title: "Minimum Kiralama Sresi",
+                            mqWidth: mqWidth,
+                            selectedValue: _selectedItemMinKiSu,
+                            itemList: _itemListMinKiSu,
+                            textStyle: GoogleFonts.inter(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xff526675))),
                         _buildDropdown(
-                            "Özel Günler için Minimum Kiralama Süresi",
-                            mqWidth,
-                            _selectedItemMinKiSu2,
-                            _itemListMinKiSu2,
-                            GoogleFonts.inter(
+                            title: "Özel Günler için Minimum Kiralama Sresi",
+                            mqWidth: mqWidth,
+                            selectedValue: _selectedItemMinKiSu2,
+                            itemList: _itemListMinKiSu2,
+                            textStyle: GoogleFonts.inter(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xff526675))),
                         _buildDropdown(
-                            "Tur Şartları",
-                            mqWidth,
-                            _selectedItemTurSartlari,
-                            _itemListTurSartlari,
-                            GoogleFonts.inter(
+                            title: "Tur Şartları",
+                            mqWidth: mqWidth,
+                            selectedValue: _selectedItemTurSartlari,
+                            itemList: _itemListTurSartlari,
+                            textStyle: GoogleFonts.inter(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xff526675)))
@@ -152,8 +152,10 @@ class _SartlarPageState extends State<SartlarPage> {
               SizedBox(
                 height: 12,
               ),
-              _buildCheckboxContainer("Kullanım Şartları",
-                  hizmetlerContentValueList, hizmetlerTexts),
+              _buildCheckboxContainer(
+                  title: "Kullanım Şartları",
+                  checkboxValues: hizmetlerContentValueList,
+                  contentTexts: hizmetlerTexts),
               Container(
                 width: mqWidth * 0.9,
                 decoration: BoxDecoration(
@@ -208,8 +210,11 @@ class _SartlarPageState extends State<SartlarPage> {
     );
   }
 
-  Widget _buildCheckboxContainer(
-      String title, List<bool> checkboxValues, List<String> contentTexts) {
+
+  Widget _buildCheckboxContainer({
+      required String title,
+      required List<bool> checkboxValues,
+      required List<String> contentTexts}) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
@@ -256,13 +261,13 @@ class _SartlarPageState extends State<SartlarPage> {
     );
   }
 
-  Padding _buildDropdown(
-    String title, // Dropdown başlığı
-    double mqWidth, // Ekran genişliği
-    String selectedValue, // Seçilen değer
-    List<String> itemList, // Dropdown'a ait veriler
-    TextStyle textStyle, // Başlık yazı stili
-  ) {
+  Padding _buildDropdown({
+    required String title, // Dropdown başlığı
+    required double mqWidth, // Ekran genişliği
+    required String selectedValue, // Seçilen değer
+    required List<String> itemList, // Dropdown'a ait veriler
+    required TextStyle textStyle, // Başlık yazı stili
+  }) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 5, 10, 5),
       child: Column(
